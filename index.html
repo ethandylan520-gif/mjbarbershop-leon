@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MJ Barbershop — Barbería en León</title>
+<meta name="description" content="MJ Barbershop, barbería en León. Cortes clásicos y modernos, barba y diseños. 5,0 en Booksy con 63 reseñas. Reserva por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0d0d0f;
+    --negro-2: #16161a;
+    --negro-3: #1f1f25;
+    --oro: #c9a253;
+    --oro-claro: #e8cd8c;
+    --crema: #f3eee4;
+    --gris: #a9a6a0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--negro); color: var(--crema); line-height: 1.65; }
+  h1, h2, h3 { font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 1px; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  header {
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 6%; background: rgba(13,13,15,.9); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,162,83,.2);
+  }
+  .marca { display: flex; align-items: center; gap: 12px; }
+  .marca img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1px solid var(--oro); }
+  .marca span { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.15rem; letter-spacing: 2px; }
+  nav ul { list-style: none; display: flex; gap: 30px; }
+  nav a { font-size: .8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gris); transition: color .2s; }
+  nav a:hover { color: var(--oro-claro); }
+
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 120px 6% 80px; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(90deg, rgba(13,13,15,.97) 0%, rgba(13,13,15,.85) 42%, rgba(13,13,15,.35) 100%), url('img/hero.jpeg') 70% 30%/cover no-repeat;
+  }
+  .hero-in { max-width: 600px; }
+  .etiqueta { display: inline-block; color: var(--oro-claro); border: 1px solid var(--oro); padding: 6px 18px; font-size: .72rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 26px; }
+  .hero h1 { font-size: clamp(2.6rem, 6.5vw, 4.6rem); line-height: 1.05; margin-bottom: 22px; }
+  .hero h1 span { color: var(--oro); }
+  .hero p { color: #d8d3c8; font-size: 1.08rem; max-width: 480px; margin-bottom: 34px; }
+  .botones { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--oro-claro), var(--oro)); color: var(--negro); padding: 15px 32px; font-weight: 700; font-size: .85rem; letter-spacing: 1.5px; text-transform: uppercase; transition: transform .2s, box-shadow .2s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,162,83,.3); }
+  .btn-linea { background: transparent; color: var(--crema); border: 1px solid rgba(243,238,228,.4); }
+  .btn-linea:hover { border-color: var(--oro); box-shadow: none; }
+
+  .franja { background: linear-gradient(90deg, var(--oro), var(--oro-claro), var(--oro)); color: var(--negro); text-align: center; padding: 13px 20px; font-weight: 700; font-size: .92rem; letter-spacing: 1px; }
+
+  section { padding: 100px 6%; max-width: 1180px; margin: 0 auto; }
+  .titulillo { display: block; text-align: center; color: var(--oro); font-size: .75rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; }
+  .titulo { text-align: center; font-size: clamp(2rem, 4.5vw, 2.9rem); margin-bottom: 56px; }
+
+  .sobre { display: grid; grid-template-columns: 300px 1fr; gap: 64px; align-items: center; }
+  .sobre-logo { border-radius: 50%; overflow: hidden; border: 2px solid var(--oro); box-shadow: 0 0 0 10px rgba(201,162,83,.08), 0 30px 60px rgba(0,0,0,.6); }
+  .sobre-txt p { color: #cfcac0; margin-bottom: 16px; font-size: 1.03rem; }
+  .datos { display: flex; gap: 42px; margin-top: 28px; flex-wrap: wrap; }
+  .dato b { display: block; font-family: 'Cinzel', serif; font-size: 2.4rem; color: var(--oro); line-height: 1.1; }
+  .dato span { font-size: .75rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gris); }
+  .ventajas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .ventajas span { border: 1px solid rgba(201,162,83,.35); color: var(--oro-claro); font-size: .78rem; padding: 6px 14px; border-radius: 30px; }
+
+  .fondo-2 { background: var(--negro-2); }
+  .servicios { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+  .serv { display: flex; align-items: baseline; gap: 12px; padding: 20px 0; border-bottom: 1px solid rgba(201,162,83,.15); }
+  .serv h3 { font-family: 'Montserrat', sans-serif; font-size: 1.02rem; font-weight: 600; letter-spacing: 0; }
+  .serv small { display: block; color: var(--gris); font-size: .82rem; margin-top: 2px; }
+  .serv .puntos { flex: 1; border-bottom: 1px dotted rgba(201,162,83,.35); transform: translateY(-4px); }
+  .serv .precio { font-family: 'Cinzel', serif; color: var(--oro-claro); font-size: 1.15rem; white-space: nowrap; }
+  .vip { margin-top: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 30px 34px; border: 1px solid var(--oro); background: linear-gradient(135deg, rgba(201,162,83,.12), rgba(201,162,83,.02)); }
+  .vip h3 { color: var(--oro-claro); font-size: 1.4rem; margin-bottom: 4px; }
+  .vip p { color: #cfcac0; font-size: .95rem; }
+  .vip .precio { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--oro); white-space: nowrap; }
+
+  .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .galeria img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: saturate(.9); transition: transform .4s, filter .4s; }
+  .galeria img:hover { transform: scale(1.03); filter: saturate(1.1); }
+
+  .fidelidad { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .fidelidad img { border: 1px solid rgba(201,162,83,.4); box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+  .fidelidad h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 18px; }
+  .fidelidad h2 span { color: var(--oro); }
+  .fidelidad p { color: #cfcac0; margin-bottom: 26px; }
+
+  .productos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .productos img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .nota-prod { text-align: center; color: var(--gris); margin-top: 22px; font-size: .92rem; }
+
+  .info { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .horario { width: 100%; border-collapse: collapse; }
+  .horario td { padding: 14px 4px; border-bottom: 1px solid rgba(201,162,83,.15); }
+  .horario td:last-child { text-align: right; color: var(--gris); }
+  .horario tr.cerrado td:last-child { color: #7d7a74; }
+  .dir { margin-top: 22px; color: #cfcac0; }
+  .dir b { color: var(--oro-claro); font-weight: 600; }
+  .mapa { border: 1px solid rgba(201,162,83,.4); overflow: hidden; }
+  .mapa img { width: 100%; }
+
+  .cta { text-align: center; padding: 110px 6%; background: radial-gradient(60% 80% at 50% 0%, rgba(201,162,83,.16), transparent 70%), var(--negro-2); border-top: 1px solid rgba(201,162,83,.2); }
+  .cta h2 { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 16px; }
+  .cta p { color: #cfcac0; max-width: 480px; margin: 0 auto 34px; }
+
+  footer { text-align: center; padding: 30px 6%; color: #77746e; font-size: .82rem; border-top: 1px solid rgba(201,162,83,.12); }
+
+  @media (max-width: 860px) {
+    nav ul { display: none; }
+    .hero::before { background: linear-gradient(180deg, rgba(13,13,15,.6) 0%, rgba(13,13,15,.92) 60%), url('img/hero.jpeg') 60% 20%/cover no-repeat; }
+    .sobre, .fidelidad, .info, .servicios { grid-template-columns: 1fr; }
+    .sobre { text-align: center; gap: 40px; }
+    .sobre-logo { width: 210px; margin: 0 auto; }
+    .datos, .ventajas { justify-content: center; }
+    .galeria { grid-template-columns: repeat(2, 1fr); }
+    .productos { grid-template-columns: repeat(3, 1fr); }
+    .productos img:nth-child(n+4) { display: none; }
+    section { padding: 72px 6%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="marca" href="#inicio"><img src="img/logo.jpeg" alt="MJ Barbershop"><span>MJ BARBERSHOP</span></a>
+  <nav>
+    <ul>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Trabajos</a></li>
+      <li><a href="#fidelidad">Fidelidad</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="inicio" style="max-width:none;">
+  <div class="hero-in">
+    <span class="etiqueta">Barbería · León</span>
+    <h1>Estilo y confianza<br><span>en cada corte</span></h1>
+    <p>Cortes clásicos y modernos, degradados, diseños y arreglo de barba con atención personalizada. Valoración perfecta de nuestros clientes.</p>
+    <div class="botones">
+      <a class="btn" href="https://wa.me/34610058592" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+      <a class="btn btn-linea" href="#servicios">Ver precios</a>
+    </div>
+  </div>
+</section>
+
+<div class="franja">★★★★★ 5,0 / 5 — 63 reseñas verificadas en Booksy</div>
+
+<section id="nosotros">
+  <span class="titulillo">Quiénes somos</span>
+  <h2 class="titulo">MJ Barbershop</h2>
+  <div class="sobre">
+    <div class="sobre-logo"><img src="img/logo.jpeg" alt="Logo MJ Barbershop"></div>
+    <div class="sobre-txt">
+      <p>Un espacio donde el estilo y la confianza se encuentran. En MJ Barbershop ofrecemos cortes de cabello clásicos y modernos, afeitados profesionales y diseño de barba, siempre con una atención cercana y personalizada.</p>
+      <p>Al frente está Amaro, que cuida cada detalle para que salgas exactamente con el estilo que buscas, ya sea un degradado limpio, un diseño a navaja o un clásico de siempre.</p>
+      <div class="datos">
+        <div class="dato"><b>5,0</b><span>Valoración</span></div>
+        <div class="dato"><b>63+</b><span>Reseñas</span></div>
+        <div class="dato"><b>10 €</b><span>Corte desde</span></div>
+      </div>
+      <div class="ventajas">
+        <span>Plaza de aparcamiento</span>
+        <span>Acceso adaptado</span>
+        <span>Ideal para niños</span>
+        <span>Se admiten mascotas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fondo-2">
+<section id="servicios">
+  <span class="titulillo">Carta de servicios</span>
+  <h2 class="titulo">Servicios y precios</h2>
+  <div class="servicios">
+    <div class="serv"><div><h3>Corte caballero</h3><small>Urbano, clásico o moderno · 30 min</small></div><span class="puntos"></span><span class="precio">10 €</span></div>
+    <div class="serv"><div><h3>Arreglo de barba</h3><small>Perfilado y acabado · 15 min</small></div><span class="puntos"></span><span class="precio">10 €</span></div>
+    <div class="serv"><div><h3>Corte + diseño</h3><small>Líneas y dibujos a navaja · 30 min</small></div><span class="puntos"></span><span class="precio">12 €</span></div>
+    <div class="serv"><div><h3>Corte + cejas</h3><small>Corte y arreglo de cejas · 30 min</small></div><span class="puntos"></span><span class="precio">12 €</span></div>
+    <div class="serv"><div><h3>Corte + barba</h3><small>El combo completo · 50 min</small></div><span class="puntos"></span><span class="precio">14 €</span></div>
+    <div class="serv"><div><h3>Corte, barba y cejas</h3><small>Servicio completo · 45 min</small></div><span class="puntos"></span><span class="precio">16 €</span></div>
+  </div>
+  <div class="vip">
+    <div>
+      <h3>Corte VIP nocturno</h3>
+      <p>¿No puedes en horario normal? Te atendemos fuera de hora. Corte 30 € · corte + barba 40 €.</p>
+    </div>
+    <span class="precio">desde 30 €</span>
+  </div>
+</section>
+</div>
+
+<section id="galeria">
+  <span class="titulillo">Nuestro trabajo</span>
+  <h2 class="titulo">Trabajos recientes</h2>
+  <div class="galeria">
+    <img src="img/corte_2.jpeg" alt="Degradado con barba en MJ Barbershop">
+    <img src="img/corte_1.jpeg" alt="Corte con diseño en MJ Barbershop">
+    <img src="img/corte_3.jpeg" alt="Degradado en MJ Barbershop">
+    <img src="img/corte_4.jpeg" alt="Corte con líneas en MJ Barbershop">
+  </div>
+</section>
+
+<div class="fondo-2">
+<section id="fidelidad">
+  <div class="fidelidad">
+    <img src="img/fidelidad.jpeg" alt="Tarjeta de fidelidad MJ Barbershop">
+    <div>
+      <span class="titulillo" style="text-align:left;">Tarjeta de fidelidad</span>
+      <h2>10 cortes,<br><span>1 gratis</span></h2>
+      <p>Tu confianza nos motiva. Con cada corte sumas un sello en tu tarjeta y el décimo corre de nuestra cuenta. Pídela en tu próxima visita.</p>
+      <a class="btn" href="https://wa.me/34610058592" target="_blank" rel="noopener">Pedir cita</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<section id="productos">
+  <span class="titulillo">Para casa</span>
+  <h2 class="titulo">Productos profesionales</h2>
+  <div class="productos">
+    <img src="img/producto_1.jpeg" alt="Pasta de peinado">
+    <img src="img/producto_2.jpeg" alt="Cera de peinado">
+    <img src="img/producto_3.jpeg" alt="Crema de brillo">
+    <img src="img/producto_4.jpeg" alt="Crema moldeadora">
+    <img src="img/producto_5.jpeg" alt="Polvos de volumen">
+  </div>
+  <p class="nota-prod">Ceras, pastas, polvos de volumen, mascarillas y tinte cubre canas. Pregúntanos cuál va mejor con tu corte.</p>
+</section>
+
+<div class="fondo-2">
+<section id="ubicacion">
+  <span class="titulillo">Visítanos</span>
+  <h2 class="titulo">Horario y ubicación</h2>
+  <div class="info">
+    <div>
+      <table class="horario">
+        <tr><td>Lunes</td><td>15:30 – 20:30</td></tr>
+        <tr><td>Martes</td><td>15:30 – 20:30</td></tr>
+        <tr><td>Miércoles</td><td>15:30 – 20:30</td></tr>
+        <tr><td>Jueves</td><td>15:00 – 20:30</td></tr>
+        <tr><td>Viernes</td><td>15:30 – 20:30</td></tr>
+        <tr><td>Sábado</td><td>11:00 – 15:30</td></tr>
+        <tr class="cerrado"><td>Domingo</td><td>Cerrado</td></tr>
+      </table>
+      <p class="dir"><b>C. San Juan Bosco, 3</b> · 24009 León</p>
+      <p class="dir">Tel / WhatsApp: <b>610 05 85 92</b></p>
+    </div>
+    <div class="mapa"><img src="img/map.png" alt="Mapa de MJ Barbershop en León"></div>
+  </div>
+</section>
+</div>
+
+<div class="cta">
+  <h2>Reserva tu cita</h2>
+  <p>Escríbenos por WhatsApp y te damos hora al momento. Solo con cita previa.</p>
+  <a class="btn" href="https://wa.me/34610058592" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+</div>
+
+<footer>© 2026 MJ Barbershop · C. San Juan Bosco, 3, León</footer>
+
+</body>
+</html>
